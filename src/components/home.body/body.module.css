@@ -1,0 +1,59 @@
+.cardsCnt{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-grow: 0;
+    flex-basis: 33.3333%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    width: 70%;
+    margin-left: 13%;
+}
+.newsCard{
+    width: 300px;
+    height: 260px;
+    margin-top: 3%;
+    margin-right: 2%;
+    background-color: white;
+    border-radius: 5px;
+}
+.newsCard:hover{
+    transform: scale(1.05);
+    transition: 0.1s;
+    filter: drop-shadow(-12px 10px 15px rgba(0, 0, 0, 0.29))
+}
+.cardTitle {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+
+}
+.pic{
+    width: 100%;
+    height: 100%;
+    
+}
+.picCnt{
+    height: 200px;
+    width: 300px;
+}
+.like{
+    margin-left: 3%;
+    cursor: pointer;
+}
+.likes{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    text-decoration: none;
+}
+.line{
+    border: 1px solid rgb(234, 228, 228);
+}
+button{
+    border: none;
+    background-color: transparent;
+}

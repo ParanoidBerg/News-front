@@ -1,10 +1,10 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from 'react-router-dom';
-import { getCats } from '../features/categoriesSlice';
+import { Link, useParams} from 'react-router-dom';
+import { getCats } from '../../features/categoriesSlice';
 import styles from './header.module.css'
-import logo from '../assets/image43.svg'
+import logo from '../../assets/image43.svg'
 import { useState } from 'react';
 import { AiOutlineUser } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
@@ -12,9 +12,15 @@ import { BsSearch } from 'react-icons/bs';
 
 
 const Header = () => {
-    const cats = useSelector((state)=>state.cats)
-    const error = useSelector((state)=>state.error)
-    const loading = useSelector((state)=>state.loading)
+    const news = useSelector((state)=>state.news.news)
+    const cats = useSelector((state)=>state.cats.cats)
+    const error = useSelector((state)=>state.cats.error)
+    const loading = useSelector((state)=>state.cats.loading)
+
+
+    
+
+
 
     const dispatch = useDispatch()
 
@@ -26,7 +32,6 @@ const Header = () => {
 
     return (
         <>
-        {/* {loading && <div>Loading....</div>} */}
         <div className={styles.header}>
             <div className={styles.navBar}>
             <div className={styles.logoCnt}>

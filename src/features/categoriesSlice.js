@@ -11,11 +11,6 @@ export const getCats = createAsyncThunk("cats/get", async (_, thunkAPI)=>{
         const res = await fetch("http://localhost:4000/categories")
         const data = await res.json()
 return data
-        // if (data.error) {
-        //     return thunkAPI.rejectWithValue(data.error);
-        //   } else {
-        //     return thunkAPI.fulfillWithValue(data);
-        //   }
     }catch (e) {
     return thunkAPI.rejectWithValue(e);
   }
