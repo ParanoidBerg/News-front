@@ -12,6 +12,7 @@ const Body = () => {
   const error = useSelector((state) => state.news.error);
   const loading = useSelector((state) => state.news.loading);
   const likes = useSelector((state) => state.news.likes);
+  const comments = useSelector((state)=>state.comments.comments)
 
   const dispatch = useDispatch();
 
@@ -56,7 +57,7 @@ const Body = () => {
                     <button onClick={() => handleLike(element._id)}>
                       <FcLike className={styles.like} />
                     </button>{" "}
-                    {likes}{" "}
+                    {likes}
                   </div>
                 </div>
               </div>

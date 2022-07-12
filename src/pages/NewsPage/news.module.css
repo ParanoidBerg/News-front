@@ -30,4 +30,98 @@
     margin-left: 27%;
     width: 45%;
     font-size: 20px;
+    margin-bottom: 3%;
 }
+hr{
+    margin-bottom: 1%;
+}
+.formMain{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    
+}
+.commentsSection{
+    margin-left: 27%;
+}
+.commentAmount{
+    display: flex;
+    justify-content: space-between;
+    width: 180px;
+}
+.likesAm{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.amText{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.form{
+    width: 30%;
+    margin-right: 16%;
+
+}
+textarea{
+    margin-top: 2%;
+}
+.add{
+    border: none;
+    background-color: #0E1E32;
+    color: white;
+    width: 150px;
+    height: 30px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    margin-top: 1%;
+}
+.addOff{
+    border: none;
+    background-color: #c5cdd7;
+    color: white;
+    width: 150px;
+    height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    margin-top: 1%;
+}
+.input{
+    border: none;
+    outline: none;
+    width: 660px;
+    height: 120px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+.commentCard{
+    margin-top: 3%;
+    width: 60%;
+    background-color: #c5cdd7;
+    border-radius: 5px;
+}
+.comContent{
+    margin-top: 2%;
+    margin-bottom: 1%;
+    width: 99.9%;
+    display: flex;
+    background-color: #c5cdd7;
+    border-radius: 5px;
+    padding-bottom: 10px;
+    justify-content: space-between;  
+}
+.userName{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    margin-left: 5px;
+    padding-top: 5px;
+    color: #3b71b4;
+}
+.commentText{
+    margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.del{
+    cursor: pointer;
+    color: red;
+    margin-right: 10px;
+}
+

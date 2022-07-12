@@ -26,6 +26,8 @@
 .cardTitle {
     font-family: Arial, Helvetica, sans-serif;
     color: black;
+    margin-left: 3%;
+    margin-top: 1%;
 }
 
 a {
@@ -42,13 +44,20 @@ a {
     width: 300px;
 }
 .like{
-    margin-left: 3%;
     cursor: pointer;
+}
+.comments{
+    margin-left: 5%;
+    margin-right: 2%;
+}
+.comAm{
+    font-family: Arial, Helvetica, sans-serif;
 }
 .likes{
     font-family: Arial, Helvetica, sans-serif;
     color: black;
     text-decoration: none;
+    display: flex;
 }
 .line{
     border: 1px solid rgb(234, 228, 228);
