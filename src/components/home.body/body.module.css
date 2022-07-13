@@ -43,17 +43,10 @@ a {
     height: 200px;
     width: 300px;
 }
-.like{
-    cursor: pointer;
+.com{
+    margin-left: 3%;
 }
-.comments{
-    margin-left: 5%;
-    margin-right: 2%;
-}
-.comAm{
-    font-family: Arial, Helvetica, sans-serif;
-}
-.likes{
+.coms{
     font-family: Arial, Helvetica, sans-serif;
     color: black;
     text-decoration: none;
@@ -65,4 +58,7 @@ a {
 button{
     border: none;
     background-color: transparent;
+}
+.comAm{
+    margin-left: 1%;
 }

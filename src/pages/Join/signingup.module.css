@@ -1,0 +1,125 @@
+.join {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .border {
+    border: 1px solid #0E1E32;
+    height: 310px;
+    width: 450px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3%;
+    border-radius: 5px;
+  }
+  h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0E1E32;
+  }
+  .login {
+    margin-top: 1%;
+    height: 30px;
+    width: 400px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid lightgray;
+    margin-bottom: 3%;
+  }
+  .password {
+    height: 30px;
+    width: 400px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid lightgray;
+    margin-bottom: 1%;
+  }
+  .btn {
+    width: 150px;
+    height: 30px;
+    border: 1px solid #0E1E32;
+    color: white;
+    border-radius: 3px;
+    background-color: #0E1E32;
+    cursor: pointer;
+    margin-top: 3%;
+  }
+  .btnOff {
+    width: 150px;
+    height: 30px;
+    border: 1px solid lightblue;
+    color: white;
+    border-radius: 3px;
+    background-color: lightblue;
+    cursor: pointer;
+    margin-top: 3%;
+  }
+  .links {
+    position: absolute;
+    left: 80%;
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+  }
+  .home {
+    text-decoration: none;
+    color: #0E1E32;
+  }
+  .signUp {
+    text-decoration: none;
+    color: #0E1E32;
+  }
+  .signIn {
+    text-decoration: none;
+    color: #0E1E32;
+  }
+  .home:hover {
+    color: lightblue;
+  }
+  .signIn:hover {
+    color: lightblue;
+  }
+  .signUp:hover {
+    color: lightblue;
+  }
+  .errorCnt {
+    border: 1px solid red;
+    margin-top: 2%;
+    height: 35px;
+    width: 400px;
+    border-radius: 5px;
+  }
+  .error {
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    text-align: center;
+    margin-top: 2%;
+  }
+  .fullfCnt {
+    border: 1px solid green;
+    margin-top: 2%;
+    height: 50px;
+    width: 400px;
+    border-radius: 5px;
+  }
+  .fullfCnt2 {
+    border: 1px solid green;
+    margin-top: 2%;
+    height: 35px;
+    width: 400px;
+    border-radius: 5px;
+  }
+  .fullf {
+    font-family: Arial, Helvetica, sans-serif;
+    color: green;
+    text-align: center;
+    margin-top: 2%;
+  }
+  .continue{
+    font-family: Arial, Helvetica, sans-serif;
+    color: green;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 1%;
+  }

@@ -6,10 +6,10 @@ import Body from "./components/home.body/Body";
 import Footer from "./components/Footer/Footer";
 import { useSelector } from "react-redux";
 import News from "./pages/NewsPage/News";
+import SignUp from "./pages/Join/SignUp";
+import SignIn from "./pages/Join/SignIn";
 
 function App() {
-
-  const news = useSelector((state)=>state.news.news)
 
   return (
     <>
@@ -20,6 +20,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/categories/:id" element={<Home />}/>
         <Route path='/news/:id' element={<News />}/>
+        <Route path='/signup' element={<SignUp />}/>
+        <Route path='/signin' element={<SignIn />}/>
       </Routes>
       <Footer />
     </BrowserRouter>

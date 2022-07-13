@@ -4,7 +4,6 @@ const initialState = {
     news: [],
     loading: false,
     error: null,
-    likes: 0,
 }
 
 export const getNews = createAsyncThunk('news/get', async(_, thunkAPI)=>{
@@ -19,20 +18,6 @@ export const getNews = createAsyncThunk('news/get', async(_, thunkAPI)=>{
 export const getNewsById = createAsyncThunk('news/get', async(el, thunkAPI)=>{
     try{
         const res = await fetch(`http://localhost:4000/news${el._id}`)
-        const data = await res.json()
-        return data
-    }catch (e) {
-    return thunkAPI.rejectWithValue(e);
-  }
-})
-
-export const changeNews = createAsyncThunk('news/change', async(el, thunkAPI)=>{
-    try{
-        const res = await fetch(`http://localhost:4000/news/${el._id}`,{
-            method: 'PATCH',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ likes: el.likes + 1 }),
-        })
         const data = await res.json()
         return data
     }catch (e) {

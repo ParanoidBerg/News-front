@@ -40,10 +40,8 @@ body{
     height: 30px;
     cursor: pointer;
 }
-.search1{
-    width: 23px;
-    height: 23px;
-    cursor: pointer;
+.userName{
+    font-family: Arial, Helvetica, sans-serif;
 }
 .joinPopUp{
     box-shadow: 4px 5px 8px 6px rgba(34, 60, 80, 0.2);
@@ -51,7 +49,7 @@ body{
     position: absolute;
     top: 10%;
     width: 10%;
-    height: 10%;
+    height: 15%;
     background-color: white;
 }
 .linkCnt{
@@ -71,11 +69,26 @@ body{
     color: black;
     font-family: Arial, Helvetica, sans-serif;
 }
+.logOut{
+    margin-top: 3%;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: red;
+    font-size: 15.5px;
+}
+.logOut:hover{
+    color: rgb(166, 56, 56);
+}
 .signin:hover{
     color: gray;
 }
 .signup:hover{
     color: gray;
+}
+.lLine{
+    width: 75%;
 }
 
 

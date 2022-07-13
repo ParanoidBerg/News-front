@@ -3,9 +3,26 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = {
   signingUp: false,
   signingIn: false,
+  isFulf: false,
   error: null,
   token: localStorage.getItem("token"),
+  users: [],
+  name: localStorage.getItem("name")
 };
+
+export const getUser = createAsyncThunk("user/get", async (_, thunkAPI) => {
+  try {
+    const res = await fetch("http://localhost:4000/users");
+    const data = await res.json();
+    if (data.error) {
+      return thunkAPI.rejectWithValue(data.error);
+    } else {
+      return thunkAPI.fulfillWithValue(data);
+    }
+  } catch (error) {
+    thunkAPI.rejectWithValue(error);
+  }
+});
 
 export const createUser = createAsyncThunk(
   "auth/signup",
@@ -47,6 +64,7 @@ export const authorizate = createAsyncThunk(
         return thunkAPI.rejectWithValue(data.error);
       } else {
         localStorage.setItem("token", data.token);
+        localStorage.setItem("name", data.name)
         return thunkAPI.fulfillWithValue(data);
       }
     } catch (e) {
@@ -70,6 +88,7 @@ export const authSlice = createSlice({
         state.authorization = action.payload;
         state.signingUp = false;
         state.error = null;
+        state.isFulf = true;
       })
       .addCase(createUser.rejected, (state, action) => {
         state.error = "Данное имя пользователя уже существует";
@@ -77,13 +96,13 @@ export const authSlice = createSlice({
       })
       .addCase(createUser.pending, (state, action) => {
         state.error = null;
-        state.signingUp = true;
       })
       .addCase(authorizate.fulfilled, (state, action) => {
         state.authorization = action.payload;
-        state.signingIn = false;
+        state.signingIn = true;
         state.error = null;
         state.token = action.payload.token;
+        state.isFulf = true;
       })
       .addCase(authorizate.rejected, (state, action) => {
         state.error = action.payload;
@@ -92,7 +111,14 @@ export const authSlice = createSlice({
       .addCase(authorizate.pending, (state, action) => {
         state.error = null;
         state.signingIn = true;
-      });
+      })
+      .addCase(getUser.fulfilled, (state, action) => {
+        state.users = action.payload;
+      })
+      .addCase(getUser.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+
   },
 });
 export const { logOut } = authSlice.actions;

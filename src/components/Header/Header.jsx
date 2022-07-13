@@ -8,30 +8,35 @@ import logo from '../../assets/image43.svg'
 import { useState } from 'react';
 import { AiOutlineUser } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
+import { getUser, logOut } from '../../features/authSlice';
 
 
 
 const Header = () => {
-    const news = useSelector((state)=>state.news.news)
     const cats = useSelector((state)=>state.cats.cats)
     const error = useSelector((state)=>state.cats.error)
     const loading = useSelector((state)=>state.cats.loading)
+    const users = useSelector((state)=>state.auth.users)
+    const token = useSelector((state)=>state.auth.token)
 
+    const name = localStorage.getItem("name")
 
+    const handleLogOut = () => {
+        dispatch(logOut());
+        setOpened(false)
+      };
     
-
-
-
     const dispatch = useDispatch()
 
     const [opened, setOpened] = useState(false)
 
     useEffect(()=>{
         dispatch(getCats())
+        dispatch(getUser())
     }, [dispatch])
-
     return (
         <>
+        
         <div className={styles.header}>
             <div className={styles.navBar}>
             <div className={styles.logoCnt}>
@@ -50,9 +55,11 @@ const Header = () => {
                     <div className={styles.linkCnt}>
                     <Link to='/signup' className={styles.signup}>Регистрация</Link>
                     <Link to='/signin' className={styles.signin}>Войти</Link>
+                    <hr className={styles.lLine}/>
+                    <button onClick={handleLogOut} className={styles.logOut}>Выйти</button>
                     </div>
                     </div>}
-                <div className={styles.search}><BsSearch className={styles.search1}/></div>
+                <div className={styles.userName}>{name}</div>
                 </div>
             </div>
         </div>

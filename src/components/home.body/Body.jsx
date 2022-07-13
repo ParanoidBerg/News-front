@@ -2,26 +2,21 @@ import React from "react";
 import styles from "./body.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { useState } from "react";
-import { getNews, changeNews } from "../../features/newsSlice";
+import { getNews } from "../../features/newsSlice";
 import { useEffect } from "react";
-import { FcLike } from "react-icons/fc";
+import { BiComment } from "react-icons/bi";
+import { getAllComments } from "../../features/commentSlice";
 
 const Body = () => {
   const news = useSelector((state) => state.news.news);
   const error = useSelector((state) => state.news.error);
   const loading = useSelector((state) => state.news.loading);
-  const likes = useSelector((state) => state.news.likes);
-  const comments = useSelector((state)=>state.comments.comments)
-
+  const comments = useSelector((state)=> state.comments.singleComment)
   const dispatch = useDispatch();
-
-  const handleLike = (id) => {
-    dispatch(changeNews(id));
-  };
 
   useEffect(() => {
     dispatch(getNews());
+    dispatch(getAllComments());
   }, [dispatch]);
 
   const { id } = useParams();
@@ -31,7 +26,7 @@ const Body = () => {
 
     return el.categoriesId === String(id);
   });
-
+console.log("kjnk",comments);
   return (
     <>
       {loading && <div>Loading....</div>}
@@ -53,11 +48,9 @@ const Body = () => {
                 <div className={styles.info}>
 
                   <hr className={styles.line} />
-                  <div className={styles.likes}>
-                    <button onClick={() => handleLike(element._id)}>
-                      <FcLike className={styles.like} />
-                    </button>{" "}
-                    {likes}
+                  <div className={styles.coms}>
+                      <BiComment className={styles.com} />
+                      <div className={styles.comAm}>{comments.filter((com)=> com.newsId === element._id).length}</div>
                   </div>
                 </div>
               </div>
