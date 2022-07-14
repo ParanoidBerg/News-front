@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./news.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { getNews, changeNews } from "../../features/newsSlice";
+import { getNews } from "../../features/newsSlice";
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import { BiCommentX } from "react-icons/bi";
@@ -17,13 +17,12 @@ import { Link } from "react-router-dom";
 const News = () => {
 
   const news = useSelector((state) => state.news.news);
-  const error = useSelector((state) => state.news.error);
   const loading = useSelector((state) => state.news.loading);
-  const likes = useSelector((state) => state.news.likes);
   const comments = useSelector((state) => state.comments.comments);
-  const commentsErr = useSelector((state) => state.comments.error);
   const users = useSelector((state)=> state.auth.users)
   const token = useSelector((state)=>state.auth.token)
+  const otherUser = useSelector((state)=>state.auth.user)
+
   const dispatch = useDispatch();
 
   const { id } = useParams();
@@ -52,13 +51,17 @@ const News = () => {
   useEffect(() => {
     dispatch(getComments(id));
   }, [dispatch, id]);
+
   return (
     <div>
+      {loading && <div className={styles.loaderArea}>
+   <div className={styles.loader}></div>
+</div>}
       {news.map((item) => {
         if (id === item._id) {
           return (
-            <>
-              <div className={styles.header}>
+            <div key={item._id}>
+              <div className={styles.header} >
                 <div className={styles.title}>{item.title}</div>
               </div>
               <div className={styles.picCnt}>
@@ -69,7 +72,7 @@ const News = () => {
                 />
               </div>
               <div className={styles.text}>{item.text}</div>
-            </>
+            </div>
           );
         }
       })}
@@ -83,17 +86,15 @@ const News = () => {
           users.map((user) => {
             if (user._id === el.user) {
               return (
-                <div className={styles.commentCard}>
-                  <div className={styles.userName}>{user.login}</div>
-                  <div className={styles.comContent}>
+                <div className={styles.commentCard} key={el._id} >
+                  <div className={styles.userName} >{user.login}</div>
+                  <div className={styles.comContent} >
                     <div className={styles.commentText}>{el.commentText}</div>
-                    <button
+                    {otherUser === el.user && <button
                       className={styles.del}
                       onClick={() => handleDel(el)}
-                    >
-                      {" "}
-                      <BiCommentX />{" "}
-                    </button>
+                    ><BiCommentX />
+                    </button>}
                   </div>
                 </div>
               );

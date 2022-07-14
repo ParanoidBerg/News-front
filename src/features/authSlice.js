@@ -7,7 +7,8 @@ const initialState = {
   error: null,
   token: localStorage.getItem("token"),
   users: [],
-  name: localStorage.getItem("name")
+  name: localStorage.getItem("name"),
+  user: localStorage.getItem("user")
 };
 
 export const getUser = createAsyncThunk("user/get", async (_, thunkAPI) => {
@@ -65,6 +66,7 @@ export const authorizate = createAsyncThunk(
       } else {
         localStorage.setItem("token", data.token);
         localStorage.setItem("name", data.name)
+        localStorage.setItem("user", data.user)
         return thunkAPI.fulfillWithValue(data);
       }
     } catch (e) {
@@ -73,15 +75,14 @@ export const authorizate = createAsyncThunk(
   }
 );
 
+export const logOut = createAsyncThunk('logOut', async(_, thunkAPI)=>{
+  localStorage.clear()
+})
+
 export const authSlice = createSlice({
   name: "authorization",
   initialState,
-  reducers: {
-    logOut(state, action) {
-      state.token = null;
-      localStorage.clear();
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(createUser.fulfilled, (state, action) => {
@@ -103,6 +104,7 @@ export const authSlice = createSlice({
         state.error = null;
         state.token = action.payload.token;
         state.isFulf = true;
+        state.user = action.payload.user
       })
       .addCase(authorizate.rejected, (state, action) => {
         state.error = action.payload;
@@ -118,8 +120,12 @@ export const authSlice = createSlice({
       .addCase(getUser.rejected, (state, action) => {
         state.error = action.payload;
       })
+      .addCase(logOut.fulfilled, (state, action)=>{
+        state.token = null
+        state.name = null
+        state.user = null
+      })
 
   },
 });
-export const { logOut } = authSlice.actions;
 export default authSlice.reducer;

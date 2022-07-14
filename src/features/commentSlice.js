@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     comments: [],
-    singleComment: [],
+    allComments: [],
     error: null,
     
 }
@@ -80,7 +80,7 @@ export const delComments = createAsyncThunk("comments/del", async (el, thunkAPI)
                     state.comments = state.comments.filter((i)=>i._id !== action.payload)
                })
                .addCase(getAllComments.fulfilled, (state, action)=>{
-                    state.singlecomment = action.payload
+                    state.allComments = action.payload
                     
                })
 

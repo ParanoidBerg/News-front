@@ -9,9 +9,8 @@ import { getAllComments } from "../../features/commentSlice";
 
 const Body = () => {
   const news = useSelector((state) => state.news.news);
-  const error = useSelector((state) => state.news.error);
   const loading = useSelector((state) => state.news.loading);
-  const comments = useSelector((state)=> state.comments.singleComment)
+  const allComments = useSelector((state)=> state.comments.allComments)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,11 +25,15 @@ const Body = () => {
 
     return el.categoriesId === String(id);
   });
-console.log("kjnk",comments);
   return (
     <>
-      {loading && <div>Loading....</div>}
+      {loading && <div className={styles.loaderArea}>
+   <div className={styles.loader}></div>
+</div>}
       <div className={styles.body}>
+        <div className={styles.htCnt}>
+          
+        </div>
         <div className={styles.cardsCnt}>
           {filteredNews.map((element, index) => {
             return (
@@ -50,7 +53,7 @@ console.log("kjnk",comments);
                   <hr className={styles.line} />
                   <div className={styles.coms}>
                       <BiComment className={styles.com} />
-                      <div className={styles.comAm}>{comments.filter((com)=> com.newsId === element._id).length}</div>
+                      <div className={styles.comAm}>{allComments.filter((com)=> com.newsId === element._id).length}</div>
                   </div>
                 </div>
               </div>

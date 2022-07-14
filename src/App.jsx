@@ -1,10 +1,8 @@
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from "./pages/Home/Home";
 import Header from "./components/Header/Header";
 import './app.module.css'
-import Body from "./components/home.body/Body";
 import Footer from "./components/Footer/Footer";
-import { useSelector } from "react-redux";
 import News from "./pages/NewsPage/News";
 import SignUp from "./pages/Join/SignUp";
 import SignIn from "./pages/Join/SignIn";
