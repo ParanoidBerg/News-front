@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const SignIn = () => {
     const dispatch = useDispatch();
+    const token = localStorage.getItem("token")
 
   const signingIn = useSelector((state) => state.auth.signingIn);
   const error = useSelector((state) => state.auth.error);
@@ -58,12 +59,6 @@ const SignIn = () => {
               <div className={styles.error}>{error}</div>
             </div>
           )}
-          {fullf && (
-          <div className={styles.fullfCnt2}>
-            {" "}
-            <div className={styles.fullf}>Добро пожаловать! </div>
-          </div>
-        )}
         </div>
         </div>
     );
