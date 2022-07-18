@@ -11,7 +11,10 @@ const Body = () => {
   const news = useSelector((state) => state.news.news);
   const loading = useSelector((state) => state.news.loading);
   const allComments = useSelector((state)=> state.comments.allComments)
+  const comments = useSelector((state)=>state.comments.allComments)
   const dispatch = useDispatch();
+
+
 
   useEffect(() => {
     dispatch(getNews());
@@ -22,18 +25,62 @@ const Body = () => {
 
   const filteredNews = news.filter((el) => {
     if (!id) return true;
-
     return el.categoriesId === String(id);
   });
+  if (!news.length){
+    return ''
+  }
+  const neededComs = news.map((item)=>{
+    const result = comments.filter((comm)=>comm.newsId === item._id)
+    return result;
+  })
+  
+  const topNews = () =>{
+    let max = neededComs[0]   
+    for (let i=0; i< neededComs.length; i++) {
+      if (neededComs[i].length > max.length) {
+        max = neededComs[i]
+      }
+    }
+    return max[0]
+  }
+  const topic = topNews()
+console.log(topic)
+  if (!topic) {
+    return ''
+  }
   return (
     <>
       {loading && <div className={styles.loaderArea}>
    <div className={styles.loader}></div>
 </div>}
       <div className={styles.body}>
-        <div className={styles.htCnt}>
-          
-        </div>
+       {!id && <div className={styles.htCnt}>
+          {news.map((el)=>{
+            if (el._id === topic.newsId) {
+              return (
+                <div>
+                <Link className={styles.htCnt2} to={`/news/${el._id}`}>
+                <div className={styles.imgCnt}>
+                  <img className={styles.img} alt='img' src={`http://localhost:4000/${el.pic}`}/>
+                </div>
+                <div className={styles.htText}>
+                  <div className={styles.top}>
+                  <div className={styles.ht}>Популярное</div>
+                  <div className={styles.coms}>
+                      <BiComment className={styles.com} />
+                      <div className={styles.comAmm}>{allComments.filter((com)=> com.newsId === el._id).length}</div>
+                      </div>
+                  </div>
+                  <hr className={styles.topLine} />
+                  <h2 className={styles.htTitle}>{el.title}</h2>
+                </div>
+                </Link>
+                </div>
+              )
+            }
+          })}
+        </div>}
         <div className={styles.cardsCnt}>
           {filteredNews.map((element, index) => {
             return (

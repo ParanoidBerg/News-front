@@ -121,3 +121,53 @@ button{
       transform: rotate(-180deg) skew(-360deg);
     }
   }
+  .imgCnt{
+    width: 500px;
+    height: 300px;
+  }
+  .img{
+    width: 100%;
+    height: 100%;
+  }
+  .htCnt{
+    border-radius: 5px;
+    background-color: white;
+    width: 66.5%;
+    margin-top: 1%;
+    margin-left: 15%;
+    height: 300px;
+  }
+  .htCnt2{
+    display: flex;
+    justify-content: space-between;
+  }
+  .htText{
+    width: 300px;
+    margin-right: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+  }
+  .ht{
+    color: red;
+    font-size: 12px;
+    margin-right: 3%;
+  }
+  .htTitle{
+    margin-right: 30%;
+    width: 90%;
+    color: black;
+    margin-top: 20%;
+  }
+  .comAmm{
+    font-size: 12px;
+  }
+  .top{
+    display: flex;
+  }
+  .topLine{
+    width: 100%;
+    color: rgb(205, 202, 202);
+  }
+
