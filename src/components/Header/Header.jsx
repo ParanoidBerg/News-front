@@ -53,7 +53,8 @@ const Header = () => {
             })}
           <div className={styles.leftFlang}>
             <div className={styles.join} onClick={() => setOpened(!opened)}>
-              <AiOutlineUser className={styles.join1} />
+              <AiOutlineUser className={styles.join1}  /> 
+              <div className={styles.userName}>{name}</div>
             </div>
             {opened && (
               <div className={styles.joinPopUp}>
@@ -77,7 +78,7 @@ const Header = () => {
                 </div>
               </div>
             )}
-            <div className={styles.userName}>{name}</div>
+            
           </div>
         </div>
       </div>

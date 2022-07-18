@@ -61,13 +61,18 @@ const SignUp = () => {
           <div className={styles.error}>{error}</div>
         </div>
       )}
-      {fullf && (
+      {fullf ? 
           <div className={styles.fullfCnt}>
             {" "}
             <div className={styles.fullf}>Вы успешно зарегестрированы, </div>
             <div className={styles.continue}>Что бы продолжить работу <Link to={'/signin'}>войдите в аккаунт</Link> </div>
-          </div>
-        )}
+          </div> : 
+          <div className={styles.textCnt}>
+          {" "}
+          <div className={styles.text}>Уже есть аккаунт? </div>
+          <div className={styles.continue2}><Link to={'/signin'}>Авторизируйтесь</Link> что бы продолжить работу </div>
+        </div>
+        }
     </div>
     </div>
   );

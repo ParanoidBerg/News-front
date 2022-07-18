@@ -16,11 +16,13 @@ body{
     height: 60px;
     justify-content: space-between;
     align-items: center;
+    
 }
 .cats{
     text-decoration: none;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 .cats:hover{
     border-bottom: 1px solid gray;
@@ -35,6 +37,10 @@ body{
     margin-top: 1%;
 
 }
+.join{
+    display: flex;
+    margin-bottom: 10%;
+}
 .join1{
     width: 30px;
     height: 30px;
@@ -42,6 +48,7 @@ body{
 }
 .userName{
     font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
 }
 .joinPopUp{
     box-shadow: 4px 5px 8px 6px rgba(34, 60, 80, 0.2);
