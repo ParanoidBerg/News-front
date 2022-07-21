@@ -54,7 +54,7 @@ body{
     box-shadow: 4px 5px 8px 6px rgba(34, 60, 80, 0.2);
     border-radius: 5px;
     position: absolute;
-    top: 10%;
+    top: 8%;
     width: 10%;
     height: 12%;
     background-color: white;
@@ -76,8 +76,28 @@ body{
     color: black;
     font-family: Arial, Helvetica, sans-serif;
 }
+.x{
+    margin-top: 7%;
+}
+.admin{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+.admin2{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+.a{
+    margin-top: 4%;
+}
+.admin:hover{
+    color: gray;
+}
+.admin2:hover{
+    color: gray;
+}
 .logOut{
-    margin-top: 20%;
+    margin-top: 4%;
     font-family: Arial, Helvetica, sans-serif;
     border: none;
     background-color: transparent;

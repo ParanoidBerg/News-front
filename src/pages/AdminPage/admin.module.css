@@ -1,0 +1,102 @@
+.pageTitle{
+    margin-top: 5%;
+    margin-bottom: 1%;
+    margin-left: 40%;
+    color: #0E1E32;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.form{
+    border: 1px solid #0E1E32;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 650px;
+    margin-left: 28%;
+    align-items: center;
+    padding: 20px;
+}
+.title{
+    border: none;
+    outline: none;
+    width: 90%;
+    height: 40px;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.text{
+    width: 90.5%;
+    height: 280px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.line1{
+    width: 100%;
+    margin-top: 5%;
+}
+.secondPart{
+    width: 92%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+}
+.cats{
+    margin-top: 1%;
+    margin-bottom: 6%;
+    width: 32%;
+    outline: none;
+    height: 34%;
+    border: 1px solid #0E1E32;
+    border-radius: 5px;
+    color: white;
+    background-color: #0E1E32;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.fileInputCnt{
+    border: #0E1E32 1px solid;
+    border-radius: 5px;
+    width: 60%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+.addFileBtn{
+    cursor: pointer;
+    
+}
+.fileInput{
+    margin-left: 1%;
+}
+.submit{
+    border: 1px solid #0E1E32;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: #0E1E32;
+    width: 30%;
+    height: 6%;
+    border-radius: 5px;
+    margin-top: 6%;
+    margin-left: -61%;
+}
+.submitOff{
+    border: 1px solid lightblue;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: lightblue;
+    width: 30%;
+    height: 6%;
+    border-radius: 5px;
+    margin-top: 6%;
+    margin-left: -61%;
+}
+.err{
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    margin-left: -61%;
+    margin-top: 1%;
+    font-size: 12px;
+}

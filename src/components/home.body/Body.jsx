@@ -13,7 +13,7 @@ const Body = () => {
   const allComments = useSelector((state)=> state.comments.allComments)
   const comments = useSelector((state)=>state.comments.allComments)
   const dispatch = useDispatch();
-
+  const user = localStorage.getItem('user')
 
 
   useEffect(() => {
@@ -45,12 +45,12 @@ const Body = () => {
     return max[0]
   }
   const topic = topNews()
-console.log(topic)
   if (!topic) {
     return ''
   }
   return (
     <>
+    
       {loading && <div className={styles.loaderArea}>
    <div className={styles.loader}></div>
 </div>}
@@ -59,7 +59,7 @@ console.log(topic)
           {news.map((el)=>{
             if (el._id === topic.newsId) {
               return (
-                <div>
+                <div key={el._id}>
                 <Link className={styles.htCnt2} to={`/news/${el._id}`}>
                 <div className={styles.imgCnt}>
                   <img className={styles.img} alt='img' src={`http://localhost:4000/${el.pic}`}/>

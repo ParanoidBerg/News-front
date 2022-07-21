@@ -1,0 +1,23 @@
+.main{
+    
+}
+.list{
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.del{
+    color: red;
+    cursor: pointer;
+}
+.userSearch{
+    border: 1px solid black;
+    outline: none;
+    width: 30%;
+    height: 30px;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 35%;
+    margin-top: 1%;
+}

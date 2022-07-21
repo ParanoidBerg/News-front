@@ -188,4 +188,9 @@ textarea{
       transform: rotate(-180deg) skew(-360deg);
     }
   }
+  .remove{
+    color: red;
+    cursor: pointer;
+    margin-left: 67%;
+  }
 

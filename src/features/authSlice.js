@@ -8,7 +8,8 @@ const initialState = {
   token: localStorage.getItem("token"),
   users: [],
   name: localStorage.getItem("name"),
-  user: localStorage.getItem("user")
+  user: localStorage.getItem("user"),
+  admin: localStorage.getItem("admin")
 };
 
 export const getUser = createAsyncThunk("user/get", async (_, thunkAPI) => {
@@ -67,6 +68,7 @@ export const authorizate = createAsyncThunk(
         localStorage.setItem("token", data.token);
         localStorage.setItem("name", data.name)
         localStorage.setItem("user", data.user)
+        localStorage.setItem("admin", data.admin)
         return thunkAPI.fulfillWithValue(data);
       }
     } catch (e) {
@@ -74,6 +76,20 @@ export const authorizate = createAsyncThunk(
     }
   }
 );
+export const delUser = createAsyncThunk('auth/del', async (id, thunkAPI)=>{
+  const state = thunkAPI.getState()
+  try{
+    await fetch(`http://localhost:4000/users/${id}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json",
+        Authorization: `Bearer ${state.auth.token}`
+       },
+      });
+      return id
+  }catch (error) {
+    thunkAPI.rejectWithValue(error);
+  }
+})
 
 export const logOut = createAsyncThunk('logOut', async(_, thunkAPI)=>{
   localStorage.clear()
@@ -105,6 +121,7 @@ export const authSlice = createSlice({
         state.token = action.payload.token;
         state.isFulf = true;
         state.user = action.payload.user
+        state.admin = action.payload.admin
       })
       .addCase(authorizate.rejected, (state, action) => {
         state.error = action.payload;
@@ -124,6 +141,13 @@ export const authSlice = createSlice({
         state.token = null
         state.name = null
         state.user = null
+        state.admin = null
+      })
+      .addCase(delUser.fulfilled, (state, action)=>{
+        state.users = state.users.filter((i)=>i._id !== action.payload)
+      })
+      .addCase(delUser.rejected, (state, action)=>{
+        state.error = action.payload
       })
 
   },

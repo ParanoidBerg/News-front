@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./news.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { getNews } from "../../features/newsSlice";
+import { delNews, getNews } from "../../features/newsSlice";
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import { BiCommentX } from "react-icons/bi";
@@ -22,6 +22,7 @@ const News = () => {
   const users = useSelector((state)=> state.auth.users)
   const token = useSelector((state)=>state.auth.token)
   const otherUser = useSelector((state)=>state.auth.user)
+  const admin = useSelector((state)=>state.auth.admin)
 
   const dispatch = useDispatch();
 
@@ -34,7 +35,6 @@ const News = () => {
   };
   const handleSubmit = () => {
     if (text !== "") {
-      console.log(text)
       dispatch(postComment({text, id}));
       setText("");
     }
@@ -42,6 +42,11 @@ const News = () => {
   const handleDel = (id) => {
     dispatch(delComments(id));
   };
+
+  const handleRemNews = (id) => {
+    dispatch(delNews(id))
+    window.location.href = '/'
+  }
 
   useEffect(() => {
     dispatch(getNews());
@@ -72,6 +77,7 @@ const News = () => {
                 />
               </div>
               <div className={styles.text}>{item.text}</div>
+              {admin === 'admin' && <div onClick={() => handleRemNews(item._id)} className={styles.remove}>Удалить</div>}
             </div>
           );
         }
@@ -90,7 +96,7 @@ const News = () => {
                   <div className={styles.userName} >{user.login}</div>
                   <div className={styles.comContent} >
                     <div className={styles.commentText}>{el.commentText}</div>
-                    {otherUser === el.user && <button
+                    {(otherUser === el.user || admin === 'admin') && <button
                       className={styles.del}
                       onClick={() => handleDel(el)}
                     ><BiCommentX />
